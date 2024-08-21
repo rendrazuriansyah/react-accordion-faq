@@ -1,10 +1,16 @@
 import { useState } from "react";
 
-export default function AccordionItem({ number, question, answer }) {
-	const [isOpen, setIsOpen] = useState(false);
+export default function AccordionItem({
+	number,
+	question,
+	answer,
+	curOpen,
+	onOpen,
+}) {
+	const isOpen = number === curOpen;
 
 	function handleToggle() {
-		setIsOpen(!isOpen);
+		onOpen(isOpen ? null : number);
 	}
 
 	return (
